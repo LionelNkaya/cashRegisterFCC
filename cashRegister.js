@@ -42,7 +42,7 @@ var currency = [
   }
 
 //The output of my code so far:
-//{"status":"OPEN","change":[[["Penny",100],["Nickel",5]]]}
+//{status:"OPEN", change:[[["Penny",100],["Nickel",5]]]}
 
 //function checkCashRegister(price, cash, cid) {
   //var change;
