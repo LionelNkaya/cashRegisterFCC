@@ -37,6 +37,14 @@ function checkCashRegister(price, cash, cid) {
  return cidInDollarValue;
  }
 
+//The cash register needs to know how to give back the change
+
+/* Important point to notice at this point, the cid array is given to us in ascending order (from the smallest coin, to the biggest bill)
+but we are instructed to give back the change in the discending order (first give the highest bill available in cid and finish with lowest coin)
+- We first need to think about how to reverse the cid array so that the highest bill (one hundred) is on index 0.
+- Then we need to compare the changeInDollarValue with each index of cid.
+(For Loop) Until changeInDollarValue = 0 If changeInDollarValue > cidInDollarValue at index [0] then reduce changeInDollarValue by cidInDollarValue at current index
+*/
 
   return solution;
 }
