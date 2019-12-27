@@ -26,13 +26,13 @@ function checkCashRegister(price, cash, cid) {
 //The cash register needs to know how much money in $value is to be given back (cash - price = changein$value)
  var changeInDollarValue = cash - price;
 
-//The cash register needs to know the $value of cash in drawer (cid) 
+//The cash register needs to know the $value of cash in drawer (cid)
  function testValue (arr) {
    var cidInDollarValue = 0;
    var i;
 
  for (i = 0; i < arr.length; i++) {
-     cidInDollarValue += arr[i][1] //In our case the $value of cid is always on index 1 of the array element
+     cidInDollarValue += arr[i][1] //In our case the $value of cid is always on index 1 of the cid array element
     }
  return cidInDollarValue;
  }
