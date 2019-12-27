@@ -15,6 +15,7 @@ Return {status: "CLOSED", change: [...]} with cash-in-drawer as the value for th
 Otherwise, return {status: "OPEN", change: [...]}, with the change due in coins and bills, sorted in highest to lowest order, as the value of the change key.
 */
 
+function checkCashRegister(price, cash, cid) {
 
 //Here is the solution object
  var solution = {
@@ -22,24 +23,8 @@ Otherwise, return {status: "OPEN", change: [...]}, with the change due in coins 
     change: [],
   }
 
- var displayStatus = [
-   [0, "INSUFFICIENT"],
-   [1, "CLOSED"],
-   [2, "OPEN"],
- ];
-
-var currency = [
-  ["Penny", 100],
-  ["Nickel", 5]
-];
-  var test;
-  test = 2;
-
-  if (test === 2) {
-    solution.status = displayStatus[2][1]  ;
-    solution.change = [currency];
-  console.log(solution);
-  }
+  return solution;
+}
 
 //The output of my code so far:
 //{status:"OPEN", change:[[["Penny",100],["Nickel",5]]]}
