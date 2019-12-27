@@ -23,6 +23,11 @@ function checkCashRegister(price, cash, cid) {
     change: [],
   }
 
+//The cash register needs to know how much money in $value is to be given back (cash - price = changein$value)
+ var changeInDollarValue = cash - price;
+
+
+
   return solution;
 }
 
