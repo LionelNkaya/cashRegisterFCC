@@ -52,7 +52,9 @@ function reverseTwoDarray (arr) {
   return reversed;
 }
 
-var reversedCid = reverseTwoDarray (arr);
+var reversedCid = reverseTwoDarray (cid);
+
+//Calculating the change needed
 
 
 
