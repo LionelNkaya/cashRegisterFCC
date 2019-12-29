@@ -46,6 +46,16 @@ but we are instructed to give back the change in the discending order (first giv
 (For Loop) Until changeInDollarValue = 0 If changeInDollarValue > cidInDollarValue at index [0] then reduce changeInDollarValue by cidInDollarValue at current index
 */
 
+//Function to have cid reversed:
+function reverseTwoDarray (arr) {
+  var reversed =arr.reverse();
+  return reversed;
+}
+
+var reversedCid = reverseTwoDarray (arr);
+
+
+
   return solution;
 }
 
