@@ -37,28 +37,33 @@ function checkCashRegister(price, cash, cid) {
  return cidInDollarValue;
  }
 
-//The cash register needs to know how to give back the change
+ //Testing that the function can return change
+
+ if (cidInDollarValue < changeInDollarValue) {
+     return  {status: "INSUFFICIENT_FUNDS", change: []};
+ }
+
+else if (cidInDollarValue === changeInDollarValue) {
+     return {status: "CLOSED", change: [cid]}; // For change we just return the entire cid
+ }
+
+
+/* We ruled out the options whenre we would not need to do more computation on cid in order to solve the problem.
+Now, the cash register function needs to know how to give back the change */
 
 /* Important point to notice at this point, the cid array is given to us in ascending order (from the smallest coin, to the biggest bill)
-but we are instructed to give back the change in the discending order (first give the highest bill available in cid and finish with lowest coin)
-- We first need to think about how to reverse the cid array so that the highest bill (one hundred) is on index 0.
+but we are instructed to give back the change in the discending order (first give the highest bill available in cid and finish with lowest coin).
+- We first need to think about how to reverse the cid array so that the highest bill (one hundred) is on index 0 (reverse method).
 - Then we need to compare the changeInDollarValue with each index of cid.
 (For Loop) Until changeInDollarValue = 0 If changeInDollarValue > cidInDollarValue at index [0] then reduce changeInDollarValue by cidInDollarValue at current index
 */
 
-//Function to have cid reversed:
-function reverseTwoDarray (arr) {
-  var reversed =arr.reverse();
-  return reversed;
-}
+//Reversing cid
+cid = cid.reverse();
 
-var reversedCid = reverseTwoDarray (cid);
+    //Calculating the change needed
+return solution;
 
-//Calculating the change needed
-
-
-
-  return solution;
 }
 
 //The output of my code so far:
