@@ -44,7 +44,7 @@ function checkCashRegister(price, cash, cid) {
  }
 
 else if (cidInDollarValue === changeInDollarValue) {
-     return {status: "CLOSED", change: [cid]}; // For change we just return the entire cid
+     return {status: "CLOSED", change: [...cid]}; // For change we just return the entire cid
  }
 
 
