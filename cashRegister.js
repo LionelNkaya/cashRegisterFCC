@@ -18,24 +18,21 @@ Otherwise, return {status: "OPEN", change: [...]}, with the change due in coins 
 function checkCashRegister(price, cash, cid) {
 
 //Here is the solution object
- var solution = {
-    status : "",
-    change: [],
-  }
+//var solution = {
+//    status : "",
+//    change: [],
+//  };
+
 
 //The cash register needs to know how much money in $value is to be given back (cash - price = changein$value)
  var changeInDollarValue = cash - price;
 
 //The cash register needs to know the $value of cash in drawer (cid)
- function testValue (arr) {
-   var cidInDollarValue = 0;
-   var i;
+ var cidInDollarValue = 0;
 
- for (i = 0; i < arr.length; i++) {
-     cidInDollarValue += arr[i][1] //In our case the $value of cid is always on index 1 of the cid array element
+ for (var i = 0; i < cid.length; i++) {
+     cidInDollarValue += cid[i][1]; //In our case the $value of cid is always on index 1 of the cid array element
     }
- return cidInDollarValue;
- }
 
  //Testing that the function can return change
 // We need to rule out the options whenre we would not need to do more computation on cid in order to solve the problem.
@@ -58,54 +55,22 @@ We first need to think about how to reverse the cid array so that the highest bi
 //Reversing cid
 cid = cid.reverse();
 
-// Creating an object to store the value of each currency
-var currencyDictionary = {
+// Creating an object to reference change to be given
 
-    "ONE HUNDRED" : 100.00 ,
-    "TWENTY" : 20.00 ,
-    "TEN" : 10.00 ,
-    "FIVE" : 5.00 ,
-    "ONE" : 1.00 ,
-    "QUARTER" : 0.25 ,
-    "DIME" : 0.10 ,
-    "NICKEL" : 0.05 ,
-    "PENNY" : 0.01 ,
-};
+var currencyDictionary = [
 
+  { denomination: 'ONE HUNDRED', value: 100 },
+  { denomination: 'TWENTY', value: 20 },
+  { denomination: 'TEN', value: 10 },
+  { denomination: 'FIVE', value: 5 },
+  { denomination: 'ONE', value: 20 },
+  { denomination: 'QUARTER', value: 0.25 },
+  { denomination: 'DIME', value: 0.1 },
+  { denomination: 'NICKEL', value: 0.05 },
+  { denomination: 'PENNY', value: 0.01 }
 
-/* Here is an example of a reversed cid
+];
 
-[
-  [ 'ONE HUNDRED', 100 ],
-  [ 'TWENTY', 60 ],
-  [ 'TEN', 20 ],
-  [ 'FIVE', 55 ],
-  [ 'ONE', 90 ],
-  [ 'QUARTER', 4.25 ],
-  [ 'DIME', 3.1 ],
-  [ 'NICKEL', 2.05 ],
-  [ 'PENNY', 1.01 ]
-
-]
-
-*/
-
-// Finding the number of bills/coins avialable for each currency
-var currencyAvailable = 0;
-
-
-
-
-/*
-- Then we need to compare the changeInDollarValue with each index of cid.
-(For Loop) Until changeInDollarValue = 0 If changeInDollarValue > cidInDollarValue at index [0] then reduce changeInDollarValue by cidInDollarValue at current index
-*/
-
-
-    //Calculating the change needed
-
-
-return solution;
 
 }
 
