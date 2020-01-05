@@ -53,28 +53,43 @@ Now, the cash register function needs to know how to give back the change */
 
 /* Important point to notice at this point, the cid array is given to us in ascending order (from the smallest coin, to the biggest bill)
 but we are instructed to give back the change in the discending order (first give the highest bill available in cid and finish with lowest coin).
-- We first need to think about how to reverse the cid array so that the highest bill (one hundred) is on index 0 (reverse method).
-- Then we need to compare the changeInDollarValue with each index of cid.
-(For Loop) Until changeInDollarValue = 0 If changeInDollarValue > cidInDollarValue at index [0] then reduce changeInDollarValue by cidInDollarValue at current index
+We first need to think about how to reverse the cid array so that the highest bill (one hundred) is on index 0 (reverse method).
 */
 
 //Reversing cid
 cid = cid.reverse();
 
+// Creating an object to store the value of each currency
+var currencyDictionary = {
+
+    "ONE HUNDRED" : 100.00 ,
+    "TWENTY" : 20.00 ,
+    "TEN" : 10.00 ,
+    "FIVE" : 5.00 ,
+    "ONE" : 1.00 ,
+    "QUARTER" : 0.25 ,
+    "DIME" : 0.10 ,
+    "NICKEL" : 0.05 ,
+    "PENNY" : 0.01 ,
+};
+
+
+
+
+
+/*
+- Then we need to compare the changeInDollarValue with each index of cid.
+(For Loop) Until changeInDollarValue = 0 If changeInDollarValue > cidInDollarValue at index [0] then reduce changeInDollarValue by cidInDollarValue at current index
+*/
+
+
     //Calculating the change needed
+
+
 return solution;
 
 }
 
-//The output of my code so far:
-//{status:"OPEN", change:[[["Penny",100],["Nickel",5]]]}
-
-//function checkCashRegister(price, cash, cid) {
-  //var change;
-  // Here is your change, ma'am.
-  //return change;
-
-//}
 
 // Example cash-in-drawer array:
 // [["PENNY", 1.01],
