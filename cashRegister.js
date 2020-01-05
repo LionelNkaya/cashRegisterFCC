@@ -90,6 +90,11 @@ var currencyDictionary = {
 
 */
 
+// Finding the number of bills/coins avialable for each currency
+var currencyAvailable = 0;
+
+
+
 
 /*
 - Then we need to compare the changeInDollarValue with each index of cid.
