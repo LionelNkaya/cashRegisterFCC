@@ -73,7 +73,22 @@ var currencyDictionary = {
 };
 
 
+/* Here is an example of a reversed cid
 
+[
+  [ 'ONE HUNDRED', 100 ],
+  [ 'TWENTY', 60 ],
+  [ 'TEN', 20 ],
+  [ 'FIVE', 55 ],
+  [ 'ONE', 90 ],
+  [ 'QUARTER', 4.25 ],
+  [ 'DIME', 3.1 ],
+  [ 'NICKEL', 2.05 ],
+  [ 'PENNY', 1.01 ]
+
+]
+
+*/
 
 
 /*
