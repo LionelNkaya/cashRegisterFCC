@@ -38,6 +38,7 @@ function checkCashRegister(price, cash, cid) {
  }
 
  //Testing that the function can return change
+// We need to rule out the options whenre we would not need to do more computation on cid in order to solve the problem.
 
  if (cidInDollarValue < changeInDollarValue) {
      return  {status: "INSUFFICIENT_FUNDS", change: []};
@@ -47,11 +48,9 @@ else if (cidInDollarValue === changeInDollarValue) {
      return {status: "CLOSED", change: [...cid]}; // For change we just return the entire cid
  }
 
+//Now, the cash register function needs to know how to give back the change
 
-/* We ruled out the options whenre we would not need to do more computation on cid in order to solve the problem.
-Now, the cash register function needs to know how to give back the change */
-
-/* Important point to notice at this point, the cid array is given to us in ascending order (from the smallest coin, to the biggest bill)
+/* Important point to notice at this point: the cid array is given to us in ascending order (from the smallest coin, to the biggest bill)
 but we are instructed to give back the change in the discending order (first give the highest bill available in cid and finish with lowest coin).
 We first need to think about how to reverse the cid array so that the highest bill (one hundred) is on index 0 (reverse method).
 */
