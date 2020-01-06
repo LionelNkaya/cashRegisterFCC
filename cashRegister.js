@@ -1,28 +1,4 @@
-/*
-am now dividing the problem into smaller pieces:
-The cash register needs to know how much money in $value is to be given back (cash - price = change)
-The cash register needs to know how much cash in drawer in $value and in bills and coins is available to give back (cid).
-If change > cid - return insufficient fund
-If change === cid - return status closed
--if cid > change. I need to create and use a function that compares the $value of change and the $value of cid and the coins and bills in cid (currency) - ( 2 cases )
-case1- currency “matches” change I can organize the currency in proper order to give back the change and return - {status: “OPEN”, change: […]}
-case2- currency can not “match” change with the right number of bills and coins and the function returns (insufficient fund).
-*/
-
-/* The 3 possible things that I should return
-Return {status: "INSUFFICIENT_FUNDS", change: []} if cash-in-drawer is less than the change due, or if you cannot return the exact change.
-Return {status: "CLOSED", change: [...]} with cash-in-drawer as the value for the key change if it is equal to the change due.
-Otherwise, return {status: "OPEN", change: [...]}, with the change due in coins and bills, sorted in highest to lowest order, as the value of the change key.
-*/
-
 function checkCashRegister(price, cash, cid) {
-
-//Here is the solution object
-//var solution = {
-//    status : "",
-//    change: [],
-//  };
-
 
 //The cash register needs to know how much money in $value is to be given back (cash - price = changein$value)
  var changeInDollarValue = cash - price;
@@ -55,7 +31,7 @@ We first need to think about how to reverse the cid array so that the highest bi
 //Reversing cid
 cid = cid.reverse();
 
-// Creating an object to reference change to be given
+// Creating objects to reference change to be given
 
 var currencyDictionary = [
 
@@ -71,7 +47,28 @@ var currencyDictionary = [
 
 ];
 
+//Using reduce method to create the change array
 
+var result = currencyDictionary.reduce(function(accumulator, current, index) {
+
+    if(changeInDollarValue >= current.value) {
+        var changeValue = 0.0;
+        while (changeInDollarValue >= current.value && cid[index][1] >= current.value) {
+            changeValue += current.value;
+            changeInDollarValue -= current.value;
+            changeInDollarValue = Math.round(changeInDollarValue*100) /100;
+            cid[index][1] -= current.value;
+        }
+        accumulator.push([current.denomination, changeValue]);
+        return accumulator;
+    }
+    else {
+        return accumulator;
+    }
+     }, []);
+
+return result.length > 0 && changeInDollarValue === 0 ?
+{status: "OPEN", change: result} : {status: "INSUFFICIENT_FUNDS", change: []};
 }
 
 
